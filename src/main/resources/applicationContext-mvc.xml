@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd 
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<!-- ======================SpringMVC====================== -->
+	<!-- 没有匹配的处理请求类,启用默认Servlet:SpringMVC对静态资源放行，不拦截-DefaultServletHttpRequestHandler， 对进入DispatcherServlet的URL进行筛查，
+	 	如果发现是静态资源的请求， 就将该请求转由Web应用服务器默认的Servlet处理，如果不是静态资源的请求，才由DispatcherServlet继续处理-->
+	<mvc:default-servlet-handler />
+	
+	<!-- Spring是父容器,SpringMVC是子容器,SpringMVC扫描装配时装配了Controller和Service，Service有事务由Spring管理 -->
+	<context:component-scan base-package="com.share.crm">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+	</context:component-scan>
+	
+	<!-- SpringMVC配置注解驱动,注册默认处理请求，参数和返回值的类 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- json属性设置 -->
+			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="objectMapper">
+					<bean class="com.fasterxml.jackson.databind.ObjectMapper">
+						<property name="dateFormat">
+							<!-- 处理responseBody 里面日期类型 -->
+							<bean class="java.text.SimpleDateFormat">
+								<constructor-arg type="java.lang.String" value="yyyy-MM-dd" />
+							</bean>
+						</property>
+						<property name="serializationInclusion">
+							<!-- 为null字段时不显示 -->
+							<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+						</property>
+					</bean>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- SpringMVC视图解析器，设置视图路径的前后缀，该配置可以让我们写视图路径的时候更简单。 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- SpringMVC配置文件上传解析器。 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 设置上传文件的最大尺寸为1MB -->
+		<property name="maxUploadSize">
+			<value>1048576</value>
+		</property>
+	</bean>
+	
+	<!-- SpringMVC拦截器配置 -->
+<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			设置拦截器，拦截的（地址）规则
+ 			<mvc:mapping path="/*" />
+			<mvc:mapping path="/*/*" />
+			排除拦截
+			<mvc:exclude-mapping path="/bb-8/**" />
+			<mvc:exclude-mapping path="/resources/**" />
+			<mvc:exclude-mapping path="/images/**" />
+			<mvc:exclude-mapping path="/css/**" />
+			<mvc:exclude-mapping path="/jquery-easyui/**" />
+			拦截器的全类名
+			<bean class="cn.itsource.crm.interceptor.AuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+</beans>

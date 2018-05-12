@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.share.crm.mapper.EmployeeMapper">
+	 <insert id="insert" parameterType="Employee">
+	 	insert into t_employee(username,realName,password,tel,email,inputTime,state,department_id)
+	 		value(#{username},#{realName},#{password},#{tel},#{email},#{inputTime},#{state},#{department.id});
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	delete from t_employee 
+	 		where id=#{id}
+	 </delete>
+	 
+	 <update id="update" parameterType="Employee">
+	 	update t_employee 
+	 		set username=#{username},realName=#{realName},password=#{password},tel=#{tel},email=#{email},inputTime=#{inputTime},state=#{state},department_id=#{department.id}
+	 			where id=#{id}
+	 </update>
+	 
+	 <select id="get" parameterType="long" resultType="Employee">
+	 	select * from t_employee 
+	 		where id=#{id}
+	 </select>
+	 
+	 <select id="getAll" resultType="Employee">
+	 	select * from t_employee
+	 </select>
+</mapper> 
