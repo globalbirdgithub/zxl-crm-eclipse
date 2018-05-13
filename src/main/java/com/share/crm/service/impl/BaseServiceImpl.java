@@ -14,7 +14,7 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 
 	@Transactional
 	public void save(T t) {
-		getBaseMapper().save(t);
+		getBaseMapper().insert(t);
 	}
 
 	@Transactional

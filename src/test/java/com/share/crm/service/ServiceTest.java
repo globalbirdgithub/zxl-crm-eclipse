@@ -1,5 +1,9 @@
 package com.share.crm.service;
 
+import static org.junit.Assert.*;
+
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +21,27 @@ public class ServiceTest {
 	@Autowired
 	IDepartmentService departmentService;
 	@Test
-	public void test() throws Exception {
-		Employee employee = employeeService.get(1L);
-		System.out.println(employee);
-		Department department = departmentService.get(1L);
-		System.out.println(department);
+	public void save() throws Exception {
+		Employee employee2 = new Employee();
+		employee2.setUsername("xxxxxxxxxxxx");
+		employee2.setPassword("xxxxxxxxxxxxx");
+		employeeService.save(employee2);
+	}
+	@Test
+	public void delete() throws Exception {
+		employeeService.delete(81L);
+	}
+	@Test
+	public void update() throws Exception {
+		Employee employee = employeeService.get(80L);
+		employee.setUsername("aaa");
+		employeeService.update(employee);
+	}
+	@Test
+	public void getAll() throws Exception {
+		List<Employee> all = employeeService.getAll();
+		for (Employee employee : all) {
+			System.out.println(employee.getUsername());
+		}
 	}
 }

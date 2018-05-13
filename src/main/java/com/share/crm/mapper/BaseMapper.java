@@ -9,8 +9,8 @@ import java.util.List;
  * @version V1.0
  */
 public interface BaseMapper<T> {
-	//===================基本增删改查====================
-	void save(T t);
+	//===================基本增删改查，方法名要和映射文件中id一致====================
+	void insert(T t);
 
 	void delete(Serializable id);
 
