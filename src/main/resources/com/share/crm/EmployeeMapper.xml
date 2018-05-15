@@ -19,11 +19,47 @@
 	 </update>
 	 
 	 <select id="get" parameterType="long" resultType="Employee">
-	 	select * from t_employee 
+	 	select id,username,realName,password,tel,email,inputTime,state,department_id from t_employee 
 	 		where id=#{id}
 	 </select>
 	 
 	 <select id="getAll" resultType="Employee">
-	 	select * from t_employee
+	 	select id,username,realName,password,tel,email,inputTime,state,department_id from t_employee
 	 </select>
+	 
+	 <select id="findCountByQuery" resultType="int">
+	 	select count(id) from t_employee
+	 		<include refid="whereSql"/>
+	 </select>
+	 
+	 <select id="findByQuery" parameterType="EmployeeQuery" resultMap="employeeResultMap">
+	 	select e.id,e.username,e.realName,e.password,e.tel,e.email,e.inputTime,e.state,d.id did,d.name dname from t_employee e
+	 		left join t_department d on e.department_id=d.id
+	 			<include refid="whereSql"/>
+	 				limit #{startIndex},#{pageSize}
+	 </select>
+	 
+	 <resultMap type="Employee" id="employeeResultMap">
+	 	<id property="id" column="id"/>
+	 	<result property="username" column="username"/>
+	 	<result property="realName" column="realName"/>
+	 	<result property="password" column="password"/>
+	 	<result property="tel" column="tel"/>
+	 	<result property="email" column="email"/>
+	 	<result property="inputTime" column="inputTime"/>
+	 	<result property="state" column="state"/>
+	 	<association property="department" column="department_id" javaType="Department">
+	 		<id property="id" column="did"/>
+	 		<result property="name" column="dname"/>
+	 	</association>
+	 </resultMap>
+	 
+	 <sql id="whereSql">
+	 	<where>
+	 		<if test="q!=null and q!=''">
+	 			username like concat('%',#{q},'%') or realName like concat('%',#{q},'%')
+	 		</if>
+	 	</where>
+	 </sql>
+	 
 </mapper> 

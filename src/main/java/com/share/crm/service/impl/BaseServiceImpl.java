@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import com.share.crm.mapper.BaseMapper;
+import com.share.crm.query.BaseQuery;
+import com.share.crm.query.PageList;
 import com.share.crm.service.IBaseService;
 
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
@@ -35,4 +37,13 @@ public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 		return getBaseMapper().getAll();
 	}
 
+	public PageList findByQuery(BaseQuery baseQuery) {
+		int count = getBaseMapper().findCountByQuery(baseQuery);
+		List<T> list = getBaseMapper().findByQuery(baseQuery);
+		if(count==0){
+			return new PageList();
+		}
+		PageList pageList = new PageList(count, list);
+		return pageList;
+	}
 }

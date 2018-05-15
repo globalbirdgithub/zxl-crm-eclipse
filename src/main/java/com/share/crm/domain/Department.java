@@ -19,7 +19,10 @@ public class Department {
 	private Employee manager;// 部门经理
 	private Department parent;// 上级部门
 	private List<Department> children = new ArrayList<Department>();// 子级部门
-
+	//提供给easyui
+	public String getText(){
+		return name;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -87,6 +90,6 @@ public class Department {
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + ", sn=" + sn + ", state=" + state + ", dirPath=" + dirPath
-				+ "]";
+				+", 父部门："+parent+" ,"+"子部门："+children.size()+ "]";
 	}
 }

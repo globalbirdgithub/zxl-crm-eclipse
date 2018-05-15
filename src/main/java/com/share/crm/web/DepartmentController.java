@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.share.crm.domain.Department;
+import com.share.crm.query.DepartmentQuery;
+import com.share.crm.query.PageList;
 import com.share.crm.service.IDepartmentService;
 import com.share.crm.util.AjaxResult;
 
@@ -24,8 +27,9 @@ public class DepartmentController {
 	//以json数据格式返回部门列表数据
 	@RequestMapping("/list")
 	@ResponseBody
-	public List<Department> list(){
-		return departmentService.getAll();
+	public PageList list(DepartmentQuery departmentQuery){
+		PageList pageList = departmentService.findByQuery(departmentQuery);
+		return pageList;
 	}
 	@RequestMapping("/delete")
 	@ResponseBody
@@ -50,5 +54,10 @@ public class DepartmentController {
 		} catch (Exception e) {
 			return new AjaxResult("操作失败！"+e.getMessage());
 		}
+	}
+	@RequestMapping("/departmentTree")
+	@ResponseBody
+	public List<Department> departmentTree(){
+		return departmentService.getDepartmentTreeData();
 	}
 }

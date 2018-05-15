@@ -1,6 +1,4 @@
 package com.share.crm.web;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -8,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.share.crm.domain.Employee;
+import com.share.crm.query.EmployeeQuery;
+import com.share.crm.query.PageList;
 import com.share.crm.service.IEmployeeService;
 import com.share.crm.util.AjaxResult;
-
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -23,8 +22,9 @@ public class EmployeeController {
 	}
 	@RequestMapping("/list")
 	@ResponseBody
-	public List<Employee> list(){
-		return employeeService.getAll();
+	public PageList list(EmployeeQuery employeeQuery){
+		PageList pageList = employeeService.findByQuery(employeeQuery);
+		return pageList;
 	}
 	@RequestMapping("/delete")
 	@ResponseBody

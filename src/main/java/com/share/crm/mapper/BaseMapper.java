@@ -1,7 +1,7 @@
 package com.share.crm.mapper;
-
 import java.io.Serializable;
 import java.util.List;
+import com.share.crm.query.BaseQuery;
 
 /**
  * @author MrZhang
@@ -19,5 +19,8 @@ public interface BaseMapper<T> {
 	T get(Serializable id);
 
 	List<T> getAll();
-
+	
+	int findCountByQuery(BaseQuery baseQuery);
+	
+	List<T> findByQuery(BaseQuery baseQuery);
 }
