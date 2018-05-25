@@ -28,7 +28,7 @@
 	 </select>
 	 
 	 <select id="findCountByQuery" resultType="int">
-	 	select count(id) from t_employee
+	 	select count(id) from t_employee e
 	 		<include refid="whereSql"/>
 	 </select>
 	 
@@ -36,7 +36,8 @@
 	 	select e.id,e.username,e.realName,e.password,e.tel,e.email,e.inputTime,e.state,d.id did,d.name dname from t_employee e
 	 		left join t_department d on e.department_id=d.id
 	 			<include refid="whereSql"/>
-	 				limit #{startIndex},#{pageSize}
+	 				order by ${sort} ${order}
+	 					limit #{startIndex},#{pageSize}
 	 </select>
 	 
 	 <resultMap type="Employee" id="employeeResultMap">
@@ -56,10 +57,43 @@
 	 
 	 <sql id="whereSql">
 	 	<where>
+	 		<!-- 普通查询 -->
 	 		<if test="q!=null and q!=''">
-	 			username like concat('%',#{q},'%') or realName like concat('%',#{q},'%')
+	 			and (e.username like concat('%',#{q},'%') or e.realName like concat('%',#{q},'%')
+	 				or e.tel like concat('%',#{q},'%') or e.email like concat('%',#{q},'%') 
+	 					or e.id like concat('%',#{q},'%'))
 	 		</if>
+	 		<if test="state!=-1">
+	 			and e.state=#{state}
+	 		</if>
+			<if test="beginDate!=null and beginDate!=''">
+				and e.inputTime>=#{beginDate}
+			</if>	 		
+			<if test="endDate!=null and endDate!=''">
+				and e.inputTime&lt;=#{endDate}
+			</if>
+			<!-- 高级查询 -->
+			<if test="username!=null and username!=''">
+				and e.username like concat('%',#{username},'%')
+			</if>
+			<if test="realName!=null and realName!=''">
+				and e.realName like concat('%',#{realName},'%')
+			</if>
+			<if test="tel!=null and tel!=''">
+				and e.tel like concat('%',#{tel},'%')
+			</if>
+			<if test="email!=null and email!=''">
+				and e.email like concat('%',#{email},'%')
+			</if>
+			<if test="departmentId!=null and departmentId!=''">
+				and e.department_id=#{departmentId}
+			</if>
 	 	</where>
 	 </sql>
+	 
+	 <!-- 登录 -->
+	 <select id="login" parameterType="string" resultType="Employee">
+	 	select * from t_employee where username=#{username}  
+	 </select>
 	 
 </mapper> 

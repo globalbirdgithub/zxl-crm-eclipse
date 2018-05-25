@@ -4,4 +4,6 @@ import com.share.crm.domain.Employee;
 
 public interface EmployeeMapper extends BaseMapper<Employee> {
 	
+	//登录
+	Employee login(String username);
 }

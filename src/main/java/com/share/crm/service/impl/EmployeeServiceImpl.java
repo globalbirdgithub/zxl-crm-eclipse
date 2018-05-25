@@ -17,5 +17,17 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements IE
 	protected BaseMapper<Employee> getBaseMapper() {
 		return employeeMapper;
 	}
+	//登录
+	@Override
+	public Employee login(String username, String password) {
+		Employee loginUser = employeeMapper.login(username);
+		if(loginUser==null || !loginUser.getPassword().equals(password)){
+			throw new RuntimeException("用户名或密码错误！");
+		}
+		if(loginUser.getState()==null || loginUser.getState()==-1){
+			throw new RuntimeException("无法访问！");
+		}
+		return loginUser;
+	}
 	
 }

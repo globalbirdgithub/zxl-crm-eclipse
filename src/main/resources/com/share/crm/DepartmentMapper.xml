@@ -29,7 +29,7 @@
 	 </select>
 	 
 	 <select id="findCountByQuery" resultType="int">
-	 	select count(id) from t_department 
+	 	select count(id) from t_department d
 	 		<include refid="whereSql"/>
 	 </select>
 	 
@@ -38,7 +38,8 @@
 	 		left join t_department p on d.parent_id=p.id
 	 			left join t_employee e on d.manager_id=e.id
 	 				<include refid="whereSql"/>
-	 					limit #{startIndex},#{pageSize}
+	 					order by ${sort} ${order}
+	 						limit #{startIndex},#{pageSize}
 	 </select>
 	 
 	 <resultMap type="Department" id="departmentResultMap">
@@ -60,7 +61,23 @@
 	 <sql id="whereSql">
 	 	<where>
 	 		<if test="q!=null and q!=''">
-	 			sn like concat('%',#{q},'%') or name like concat('%',#{q},'%')
+	 			and (d.sn like concat('%',#{q},'%') or d.name like concat('%',#{q},'%')
+	 				or d.dirPath like concat('%',#{q},'%') or d.id like concat('%',#{q},'%'))
+	 		</if>
+	 		<if test="state!=-2">
+	 			and d.state=#{state}
+	 		</if>
+	 		<if test="name!=null and name!=''">
+	 			and d.name like concat('%',#{name},'%')
+	 		</if>
+	 		<if test="sn!=null and sn!=''">
+	 			and d.sn like concat('%',#{sn},'%')
+	 		</if>
+	 		<if test="parentId!=null and parentId!=''">
+	 			and d.parent_id=#{parentId}
+	 		</if>
+	 		<if test="managerId!=null and managerId!=''">
+	 			and d.manager_id=#{managerId}
 	 		</if>
 	 	</where>
 	 </sql>

@@ -58,7 +58,7 @@
 	<!-- ====================应用程序====================== -->
 	<!--指定欢迎页面-->  
 	<welcome-file-list>
-        <welcome-file>login.html</welcome-file>  
+        <welcome-file>login.jsp</welcome-file>  
     </welcome-file-list> 
     <!--当系统出现404错误，跳转到页面nopage.html-->   
     <error-page> 

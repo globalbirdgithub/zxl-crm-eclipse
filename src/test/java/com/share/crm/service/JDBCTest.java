@@ -4,6 +4,8 @@ import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,9 +20,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class JDBCTest {
 	@Autowired
 	DataSource dataSource;
-	
+	Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Test
 	public void JDBC() throws Exception {
 		System.out.println(dataSource.getConnection());
+		logger.debug("数据源连接："+dataSource.getConnection());
+		logger.warn("数据源连接："+dataSource.getConnection());
 	}
 }

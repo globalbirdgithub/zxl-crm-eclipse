@@ -1,0 +1,25 @@
+[{
+	"id":1,
+	"text":"系统功能",
+	"children":[
+		{
+			"id":11,
+			"text":"员工管理",
+			"url":"/department/index",
+			"iconCls":"icon-ok"
+		},
+		{
+			"id":12,
+			"text":"部门管理",
+			"iconCls":"icon-ok"
+		},
+		{
+			"id":13,
+			"text":"权限管理"
+		},
+		{
+			"id":14,
+			"text":"角色管理"
+		}
+	]	
+}]

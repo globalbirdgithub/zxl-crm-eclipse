@@ -12,19 +12,22 @@ public class BaseQuery {
 	private int page = 1;
 	// 每页条数
 	private int rows = 10;
+	// 查询关键字
+	private String q;
+	// 排序列：默认id
+	protected String sort = "id";
+	// 排序方式:默认升序
+	protected String order = "asc";
 
-	// 起始索引
+	// 分页起始索引
 	public int getStartIndex() {
 		return (page - 1) * rows;
 	}
 
-	// 每页行数
+	// 分页每页行数
 	public int getPageSize() {
 		return rows;
 	}
-
-	// 关键字
-	private String q;
 
 	public String getQ() {
 		return q;
@@ -48,5 +51,21 @@ public class BaseQuery {
 
 	public void setRows(int rows) {
 		this.rows = rows;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
+	public String getOrder() {
+		return order;
+	}
+
+	public void setOrder(String order) {
+		this.order = order;
 	}
 }

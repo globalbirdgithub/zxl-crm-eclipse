@@ -56,20 +56,16 @@
 		</property>
 	</bean>
 	
-	<!-- SpringMVC拦截器配置 -->
-<!-- <mvc:interceptors>
+	<!-- SpringMVC登录拦截器配置 -->
+	<mvc:interceptors>
 		<mvc:interceptor>
-			设置拦截器，拦截的（地址）规则
+			<!-- 设置拦截器，拦截的（地址）规则 -->
  			<mvc:mapping path="/*" />
 			<mvc:mapping path="/*/*" />
-			排除拦截
-			<mvc:exclude-mapping path="/bb-8/**" />
+			<!-- 排除拦截 -->
 			<mvc:exclude-mapping path="/resources/**" />
-			<mvc:exclude-mapping path="/images/**" />
-			<mvc:exclude-mapping path="/css/**" />
-			<mvc:exclude-mapping path="/jquery-easyui/**" />
-			拦截器的全类名
-			<bean class="cn.itsource.crm.interceptor.AuthInterceptor" />
+			<!-- 拦截器的全类名 -->
+			<bean class="com.share.crm.interceptor.AuthInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 </beans>

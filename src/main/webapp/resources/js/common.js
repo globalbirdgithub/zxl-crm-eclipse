@@ -10,3 +10,12 @@ function employeeStatusFormatter(v, r, i) {
 function domainNameFormatter(v, r, i) {
 	return v!=null ? v.name || v.username || v.realName || v.title : "";
 }
+//将form表单参数转换为数组对象
+$.fn.serializeJson = function(){
+	var paramArray = $(this).serializeArray();// 返回参数的json对象数组
+	var param = {};
+	for (var i = 0; i < paramArray.length; i++) {
+		param[paramArray[i].name] = paramArray[i].value
+	}
+	return param;
+}

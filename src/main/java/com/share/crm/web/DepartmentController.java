@@ -58,6 +58,7 @@ public class DepartmentController {
 	@RequestMapping("/departmentTree")
 	@ResponseBody
 	public List<Department> departmentTree(){
-		return departmentService.getDepartmentTreeData();
+		List<Department> departmentTreeData = departmentService.getDepartmentTreeData();
+		return departmentTreeData;
 	}
 }

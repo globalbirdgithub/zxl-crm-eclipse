@@ -1,5 +1,7 @@
 package com.share.crm.domain;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 /**
  * 员工模型
  * 
@@ -65,11 +67,11 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public Date getInputTime() {
 		return inputTime;
 	}
-
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	public void setInputTime(Date inputTime) {
 		this.inputTime = inputTime;
 	}
