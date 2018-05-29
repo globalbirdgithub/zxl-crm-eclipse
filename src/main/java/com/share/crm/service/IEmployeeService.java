@@ -5,4 +5,6 @@ import com.share.crm.domain.Employee;
 public interface IEmployeeService extends IBaseService<Employee> {
 	// 登录
 	Employee login(String username, String password);
+	//离职
+	void leave(Long id);
 }

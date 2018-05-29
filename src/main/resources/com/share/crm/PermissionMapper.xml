@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.share.crm.mapper.PermissionMapper">
+	<insert id="insert" parameterType="Permission" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	 	insert into t_permission(name,resource)
+	 		values(#{name},#{resource})
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	delete from t_permission 
+	 		where id=#{id}
+	 </delete>
+	 
+	 <update id="update" parameterType="Permission">
+	 	update t_permission 
+	 		set name=#{name},resource=#{resource}
+	 			where id=#{id}
+	 </update>
+	 
+	 <select id="get" parameterType="long" resultType="Permission">
+	 	select id,name,resource from t_permission
+	 		where id=#{id}
+	 </select>
+	 
+	 <select id="getAll" resultType="Permission">
+	 	select id,name,resource from t_permission
+	 </select>
+	 
+	 <select id="findCountByQuery" resultType="int">
+	 	select count(id) from t_permission
+	 		<include refid="whereSql"/>
+	 </select>
+	 
+	  <select id="findByQuery" parameterType="PermissionQuery" resultType="Permission">
+	 	select id,name,resource from t_permission 
+	 		<include refid="whereSql"/>
+		 		order by ${sort} ${order}
+		 			limit #{startIndex},#{pageSize}
+	 </select>
+	 
+	 <sql id="whereSql">
+	 	<where>
+	 		<if test="q!=null and q!=''">
+	 			name like concat('%',#{q},'%') or resource like concat('%',#{q},'%')
+	 		</if>
+	 	</where>
+	 </sql>
+	 <!-- 参数来自RoleMapper.xml -->
+	 <select id="findPermissionByRoleId" parameterType="long" resultType="Permission">
+	 	select p.id,p.name,p.resource from t_permission p
+	 		left join t_role_permission rp on p.id=rp.permission_id
+	 			where rp.role_id=#{id}
+	 </select>
+</mapper> 

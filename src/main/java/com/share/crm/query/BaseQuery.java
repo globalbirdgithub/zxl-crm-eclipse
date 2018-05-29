@@ -1,7 +1,7 @@
 package com.share.crm.query;
 
 /**
- * 封装查询条件
+ * 封装查询条件:分页查询、关键字查询、排序
  * 
  * @author MrZhang
  * @date 2018年5月14日 上午10:40:02

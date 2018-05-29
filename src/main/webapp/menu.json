@@ -1,25 +1,48 @@
 [{
 	"id":1,
-	"text":"系统功能",
+	"text":"组织机构",
 	"children":[
 		{
 			"id":11,
 			"text":"员工管理",
-			"url":"/department/index",
+			"url":"/employee/index",
 			"iconCls":"icon-ok"
 		},
 		{
 			"id":12,
 			"text":"部门管理",
+			"url":"/department/index",
+			"iconCls":"icon-ok"
+		}
+	]	
+},
+{
+	"id":2,
+	"text":"系统管理",
+	"children":[
+		{
+			"id":14,
+			"text":"角色管理",
+			"url":"/role/index",
 			"iconCls":"icon-ok"
 		},
 		{
 			"id":13,
-			"text":"权限管理"
+			"text":"权限管理",
+			"url":"/permission/index",
+			"iconCls":"icon-ok"
 		},
 		{
-			"id":14,
-			"text":"角色管理"
+			"id":13,
+			"text":"菜单管理",
+			"url":"/menu/index",
+			"iconCls":"icon-ok"
+		},
+		{
+			"id":13,
+			"text":"数据字典",
+			"url":"/systemDictionary/index",
+			"iconCls":"icon-ok"
 		}
-	]	
+	]
 }]

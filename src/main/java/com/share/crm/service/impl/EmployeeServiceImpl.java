@@ -29,5 +29,10 @@ public class EmployeeServiceImpl extends BaseServiceImpl<Employee> implements IE
 		}
 		return loginUser;
 	}
+	//离职
+	@Override
+	public void leave(Long id) {
+		employeeMapper.leave(id);
+	}
 	
 }

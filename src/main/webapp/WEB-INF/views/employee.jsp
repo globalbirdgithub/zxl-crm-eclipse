@@ -108,6 +108,36 @@ $(function(){
 			        }
 			    });
 	    },
+	    employeeRefresh:function(){
+	    	employeeDataGrid.datagrid('reload');
+	    },
+	    employeeLeave:function(){
+	    	var rowData = employeeDataGrid.datagrid('getSelected');
+	    	if(!rowData){
+	    		$.messager.alert("提示","请选中一行",'info');
+	    		return;
+	    	}
+	    	if(rowData){
+    			$.messager.confirm('确认','确认离职吗？',function(r){
+	    			if(r){
+	    				$.get('/employee/leave/?id='+rowData.id,function(data){
+	    	    			if(data.success){
+	    	    				$.messager.show({
+	    	    					title:'提示',
+	    	    					msg:'离职成功'
+	    	    				});
+	    	    				employeeDataGrid.datagrid('reload');
+	    	    			}else{
+	    	    				$.messager.show({
+	    	    					title:'提示',
+	    	    					msg:data.message
+	    	    				});
+	    	    			}
+	    	    		},'json');
+	    			}
+	    		});
+	    	}
+	    },
 		employeeCancel:function(){
 			employeeDialog.dialog('close');
    		},
@@ -137,6 +167,16 @@ $(function(){
 		var cmd = $(this).data('cmd');
 		cmdObject[cmd]();
 	});
+	//离职
+	employeeDataGrid.datagrid({
+		onClickRow:function(index,row){
+			if(row.state==0){
+				$('#leave').linkbutton('disable');
+			}else{
+				$('#leave').linkbutton('enable');
+			}
+		}
+	});
 });
 </script>
 <title>员工管理</title>
@@ -164,6 +204,8 @@ $(function(){
        	<a data-cmd="employeeAdd" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add">新建员工</a>
         <a data-cmd="employeeEdit" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit">编辑员工</a>
         <a data-cmd="employeeDel" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove">移除员工</a>
+        <a data-cmd="employeeRefresh" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-refresh">刷新</a>
+        <a id="leave" data-cmd="employeeLeave" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-filter">离职</a>
        	<form method="post" id="employeeSearchForm">
         	关键字<input type="text" name="q" style="width: 65px" class="easyui-textbox"/>
         	状态<select name="state" class="easyui-combobox"><!-- 状态（1：正常，0：离职） -->

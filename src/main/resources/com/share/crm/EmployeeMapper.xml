@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.share.crm.mapper.EmployeeMapper">
-	 <insert id="insert" parameterType="Employee">
+	 <insert id="insert" parameterType="Employee" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 	 	insert into t_employee(username,realName,password,tel,email,inputTime,state,department_id)
-	 		value(#{username},#{realName},#{password},#{tel},#{email},#{inputTime},#{state},#{department.id});
+	 		values(#{username},#{realName},#{password},#{tel},#{email},#{inputTime},#{state},#{department.id});
 	 </insert>
 	 
 	 <delete id="delete" parameterType="long">
@@ -95,5 +95,8 @@
 	 <select id="login" parameterType="string" resultType="Employee">
 	 	select * from t_employee where username=#{username}  
 	 </select>
-	 
+	 <!-- 离职 -->
+	 <update id="leave" parameterType="long">
+	 	update t_employee set state=0 where id=#{id}
+	 </update>
 </mapper> 

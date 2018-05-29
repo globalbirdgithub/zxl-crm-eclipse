@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.share.crm.mapper.RoleMapper">
+	<insert id="insert" parameterType="Role" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	 	insert into t_role(name,sn)
+	 		values(#{name},#{sn})
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	delete from t_role 
+	 		where id=#{id}
+	 </delete>
+	 
+	 <update id="update" parameterType="Role">
+	 	update t_role 
+	 		set name=#{name},sn=#{sn}
+	 			where id=#{id}
+	 </update>
+	 
+	 <select id="get" parameterType="long" resultType="Role">
+	 	select id,name,sn from t_role
+	 		where id=#{id}
+	 </select>
+	 
+	 <select id="getAll" resultType="Role">
+	 	select id,name,sn from t_role
+	 </select>
+	 
+	 <select id="findCountByQuery" resultType="int">
+	 	select count(id) from t_role
+	 		<include refid="whereSql"/>
+	 </select>
+	 
+	  <select id="findByQuery" parameterType="RoleQuery" resultMap="rolePermissionResultMap">
+	 	select id,name,sn from t_role 
+	 		<include refid="whereSql"/>
+		 		order by ${sort} ${order}
+		 			limit #{startIndex},#{pageSize}
+	 </select>
+	 
+	 <resultMap type="Role" id="rolePermissionResultMap">
+	 	<id property="id" column="id"/>
+	 	<result property="name" column="name"/>
+	 	<result property="sn" column="sn"/>
+	 	<collection property="permissions" ofType="Permission" javaType="arrayList" 
+	 		column="id" select="com.share.crm.mapper.PermissionMapper.findPermissionByRoleId">
+	 	</collection>
+	 </resultMap>
+	 
+	 <sql id="whereSql">
+	 	<where>
+	 		<if test="q!=null and q!=''">
+	 			name like concat('%',#{q},'%') or sn like concat('%',#{q},'%')
+	 		</if>
+	 	</where>
+	 </sql>
+	 
+	 <!-- 保存权限,批量插入-->
+	 <!-- collection="集合" item="遍历的当前对象" index="开始索引" open="开始" close="结束" separator="分割" -->
+	 <insert id="saveRolePermissions" parameterType="list" useGeneratedKeys="true" keyProperty="id">
+	 	insert into t_role_permission (role_id,permission_id) 
+	 		values
+	 			<foreach collection="list" item="item" separator="," index="0">
+	 				(#{item.roleId},#{item.permissionId})
+	 			</foreach>
+	 </insert>
+	 <!-- 删除角色 -->
+	 <delete id="deleteRolePermissions" parameterType="long">
+	 	delete from t_role_permission 
+	 		where role_id=#{roleId}
+	 </delete>
+</mapper> 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.share.crm.mapper.SystemDictionaryItemMapper">
+	<insert id="insert" parameterType="SystemDictionaryItem" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	 	insert into t_systemdictionaryitem(name,sequence,intro,parent_id)
+	 		values(#{name},#{sequence},#{intro},#{parent.id})
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	delete from t_systemdictionaryitem 
+	 		where id=#{id}
+	 </delete>
+	 
+	 <update id="update" parameterType="SystemDictionaryItem">
+	 	update t_systemdictionaryitem 
+	 		set name=#{name},sequence=#{sequence},intro=#{intro},parent_id=#{parent.id}
+	 			where id=#{id}
+	 </update>
+	 
+	 <select id="get" parameterType="long" resultType="SystemDictionaryItem">
+	 	select id,name,sequence,intro,parent_id from t_systemdictionaryitem
+	 		where id=#{id}
+	 </select>
+	 
+	 <select id="getAll" resultType="SystemDictionaryItem">
+	 	select id,name,sequence,intro,parent_id from t_systemdictionaryitem
+	 </select>
+	 
+	 <select id="findCountByQuery" resultType="int">
+	 	select count(id) from t_systemdictionaryitem s
+	 		<include refid="whereSql"/>
+	 </select>
+	 
+	 <select id="findByQuery" parameterType="SystemDictionaryItemQuery" resultMap="systemDictionaryItemResultMap">
+	 	select s.id,s.name,s.sequence,s.intro,s.parent_id,si.id siid,si.name siname,si.sn sisn,si.intro siintro,si.state sistate from t_systemdictionaryitem s
+	 		left join t_systemdictionary si on s.parent_id=si.id
+	 			<include refid="whereSql"/>
+		 			order by ${sort} ${order}
+		 				limit #{startIndex},#{pageSize}
+	 </select>
+	 <resultMap type="SystemDictionaryItem" id="systemDictionaryItemResultMap">
+	 	<id property="id" column="id"/>
+	 	<result property="name" column="name"/>
+	 	<result property="sequence" column="sequence"/>
+	 	<result property="intro" column="intro"/>
+	 	<association property="parent" column="parent_id" javaType="SystemDictionary">
+	 		<id property="id" column="siid"/>
+	 		<result property="name" column="siname"/>
+	 		<result property="sn" column="sisn"/>
+	 		<result property="intro" column="siintro"/>
+	 		<result property="state" column="sistate"/>
+	 	</association>
+	 </resultMap>	 
+	 
+	 <sql id="whereSql">
+	 	<where>
+	 		<if test="q!=null and q!=''">
+	 			and s.name like concat('%',#{q},'%') or s.intro like concat('%',#{q},'%')
+	 		</if>
+	 		<if test="parentId!=null and parentId!=''">
+	 			and s.parent_id=#{parentId}
+	 		</if>
+	 	</where>
+	 </sql>
+</mapper> 

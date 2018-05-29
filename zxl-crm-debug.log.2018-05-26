@@ -1,0 +1,45 @@
+2018-05-26 10:44:12,005 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:44:12,072 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ==>  Preparing: insert into t_permission(name,resource) values(?,? 
+2018-05-26 10:44:12,111 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ==> Parameters: xxxyyy(String), xxxyyy(String)
+2018-05-26 10:45:19,168 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:45:19,176 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ==>  Preparing: insert into t_permission(name,resource) values(?,?) 
+2018-05-26 10:45:19,219 DEBUG [com.share.crm.mapper.PermissionMapper.insert] - ==> Parameters: xxxyyy(String), xxxyyy(String)
+2018-05-26 10:46:07,242 DEBUG [com.share.crm.mapper.PermissionMapper.delete] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:46:07,256 DEBUG [com.share.crm.mapper.PermissionMapper.delete] - ==>  Preparing: delete from t_permission where id=? 
+2018-05-26 10:46:07,311 DEBUG [com.share.crm.mapper.PermissionMapper.delete] - ==> Parameters: 37(Long)
+2018-05-26 10:46:59,548 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:46:59,557 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ==>  Preparing: select id,name,resource from t_permission where id=? 
+2018-05-26 10:46:59,590 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ==> Parameters: 38(Long)
+2018-05-26 10:46:59,645 DEBUG [com.share.crm.mapper.PermissionMapper.update] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:46:59,646 DEBUG [com.share.crm.mapper.PermissionMapper.update] - ==>  Preparing: update t_permission set name=?,resource=? where id=? 
+2018-05-26 10:46:59,647 DEBUG [com.share.crm.mapper.PermissionMapper.update] - ==> Parameters: uuuuuuu(String), xxxyyy(String), 38(Long)
+2018-05-26 10:48:12,414 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:48:12,427 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ==>  Preparing: select id,name,resource from t_permission where id=? 
+2018-05-26 10:48:12,472 DEBUG [com.share.crm.mapper.PermissionMapper.get] - ==> Parameters: 38(Long)
+2018-05-26 10:48:12,502 DEBUG [com.share.crm.mapper.PermissionMapper.getAll] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 10:48:12,503 DEBUG [com.share.crm.mapper.PermissionMapper.getAll] - ==>  Preparing: select id,name,resource from t_permission 
+2018-05-26 10:48:12,504 DEBUG [com.share.crm.mapper.PermissionMapper.getAll] - ==> Parameters: 
+2018-05-26 11:20:36,819 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:20:36,829 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_permission 
+2018-05-26 11:20:36,863 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==> Parameters: 
+2018-05-26 11:20:37,751 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:20:37,752 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==>  Preparing: select id,name,resource from t_permission order by id asc limit ?,? 
+2018-05-26 11:20:37,753 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==> Parameters: 0(Integer), 10(Integer)
+2018-05-26 11:22:12,798 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:22:12,810 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_permission 
+2018-05-26 11:22:12,851 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==> Parameters: 
+2018-05-26 11:22:13,732 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:22:13,733 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==>  Preparing: select id,name,resource from t_permission order by id asc limit ?,? 
+2018-05-26 11:22:13,734 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==> Parameters: 0(Integer), 10(Integer)
+2018-05-26 11:22:53,377 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:22:53,388 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_permission 
+2018-05-26 11:22:53,430 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==> Parameters: 
+2018-05-26 11:22:53,497 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:22:53,497 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==>  Preparing: select id,name,resource from t_permission order by id asc limit ?,? 
+2018-05-26 11:22:53,498 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==> Parameters: 10(Integer), 10(Integer)
+2018-05-26 11:23:21,089 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:23:21,100 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_permission 
+2018-05-26 11:23:21,144 DEBUG [com.share.crm.mapper.PermissionMapper.findCountByQuery] - ==> Parameters: 
+2018-05-26 11:23:21,207 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-26 11:23:21,207 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==>  Preparing: select id,name,resource from t_permission order by id asc limit ?,? 
+2018-05-26 11:23:21,208 DEBUG [com.share.crm.mapper.PermissionMapper.findByQuery] - ==> Parameters: 20(Integer), 20(Integer)

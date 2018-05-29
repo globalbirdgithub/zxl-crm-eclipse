@@ -3,9 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.share.crm.mapper.DepartmentMapper">
 	<!-- ======================================增删改查====================================== -->
-	 <insert id="insert" parameterType="Department">
+	 <insert id="insert" parameterType="Department" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
 	 	insert into t_department(sn,name,dirPath,state,manager_id,parent_id)
-	 		value(#{sn},#{name},#{dirPath},#{state},#{manager.id},#{parent.id});
+	 		values(#{sn},#{name},#{dirPath},#{state},#{manager.id},#{parent.id});
 	 </insert>
 	 
 	 <delete id="delete" parameterType="long">

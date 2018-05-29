@@ -12,8 +12,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.share.crm.domain.Department;
 import com.share.crm.domain.Employee;
+import com.share.crm.domain.Permission;
+import com.share.crm.domain.Role;
+import com.share.crm.domain.SystemDictionaryItem;
 import com.share.crm.query.BaseQuery;
 import com.share.crm.query.PageList;
+import com.share.crm.query.SystemDictionaryItemQuery;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -91,6 +95,76 @@ public class ServiceTest {
 				System.out.println("子部门："+department2);
 			}
 			System.out.println("=============");
+		}
+	}
+	@Autowired
+	private IPermissionService permissionService;
+	@Autowired
+	private IRoleService roleService;
+	@Test
+	public void testRole() throws Exception {
+		Role role = new Role();
+		role.setName("角色测试");
+		roleService.save(role);
+	}
+	@Test
+	public void testP() throws Exception {
+		permissionService.delete(37L);
+	}
+	@Test
+	public void testP2() throws Exception {
+		Role role = roleService.get(8L);
+		role.setName("角色测试1");
+		roleService.update(role);
+	}
+	@Test
+	public void testP3() throws Exception {
+		Role role = roleService.get(8L);
+		System.out.println(role);
+		List<Role> list = roleService.getAll();
+		for (Role role2 : list) {
+			System.out.println(role2);
+		}
+	}
+	@Test
+	public void testP4() throws Exception {
+		BaseQuery baseQuery = new BaseQuery();
+		baseQuery.setPage(1);
+		baseQuery.setRows(5);
+		PageList pageList = roleService.findByQuery(baseQuery);
+		System.out.println(pageList.getTotal());
+		List rows = pageList.getRows();
+		for (Object object : rows) {
+			System.out.println(object);
+		}
+	}
+	@Test
+	public void testP5() throws Exception {
+		roleService.delete(8L);
+	}
+	@Autowired
+	private ISystemDictionaryItemService systemDictionaryItemService;
+	@Test
+	public void testS() throws Exception {
+		PageList pageList = systemDictionaryItemService.findByQuery(new SystemDictionaryItemQuery());
+		Long total = pageList.getTotal();
+		System.out.println(total);
+		List rows = pageList.getRows();
+		for (Object object : rows) {
+			System.out.println(object);
+		}
+	}
+	@Test
+	public void testP8() throws Exception {
+		PageList pageList = roleService.findByQuery(new BaseQuery());
+		System.out.println(pageList.getTotal());
+		List<Role> rows = pageList.getRows();
+		for (Role object : rows) {
+			System.out.println(object);
+			List<Permission> permissions = object.getPermissions();
+			for (Permission permission : permissions) {
+				System.out.println(permission);
+			}
 		}
 	}
 }

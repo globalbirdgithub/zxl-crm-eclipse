@@ -43,7 +43,7 @@ public class DepartmentController {
 	}
 	@RequestMapping("/save")
 	@ResponseBody
-	public AjaxResult delete(Department department){
+	public AjaxResult save(Department department){
 		try {
 			if(department.getId()==null){
 				departmentService.save(department);

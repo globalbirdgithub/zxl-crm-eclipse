@@ -1,0 +1,250 @@
+2018-05-27 00:06:18,485 WARN [org.springframework.context.support.GenericApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [applicationContext.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\ITsource\9.27java\eclipse\Workspace-maven\zxl-crm\target\classes\com\share\crm\RoleMapper.xml]'; nested exception is java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1568)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:540)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:229)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:743)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\ITsource\9.27java\eclipse\Workspace-maven\zxl-crm\target\classes\com\share\crm\RoleMapper.xml]'; nested exception is java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:462)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1564)
+	... 40 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:460)
+	... 43 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:65)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 45 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:113)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 49 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:109)
+	... 51 more
+2018-05-27 00:06:18,504 ERROR [org.springframework.test.context.TestContextManager] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@70c3a412] to prepare test instance [com.share.crm.service.ServiceTest@3c48d394]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:94)
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:72)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [applicationContext.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\ITsource\9.27java\eclipse\Workspace-maven\zxl-crm\target\classes\com\share\crm\RoleMapper.xml]'; nested exception is java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1568)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:540)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:476)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:229)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:298)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:193)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:743)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:125)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:109)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:261)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:68)
+	at org.springframework.test.context.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:86)
+	... 25 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [E:\ITsource\9.27java\eclipse\Workspace-maven\zxl-crm\target\classes\com\share\crm\RoleMapper.xml]'; nested exception is java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:462)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:336)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1627)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1564)
+	... 40 more
+Caused by: java.lang.RuntimeException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:113)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.parse(XMLMapperBuilder.java:88)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:460)
+	... 43 more
+Caused by: org.apache.ibatis.builder.BuilderException: Error resolving class. Cause: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:100)
+	at org.apache.ibatis.builder.xml.XMLStatementBuilder.parseStatementNode(XMLStatementBuilder.java:65)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:128)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.buildStatementFromContext(XMLMapperBuilder.java:121)
+	at org.apache.ibatis.builder.xml.XMLMapperBuilder.configurationElement(XMLMapperBuilder.java:111)
+	... 45 more
+Caused by: org.apache.ibatis.type.TypeException: Could not resolve type alias 'RoleQuery'.  Cause: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:113)
+	at org.apache.ibatis.builder.BaseBuilder.resolveAlias(BaseBuilder.java:127)
+	at org.apache.ibatis.builder.BaseBuilder.resolveClass(BaseBuilder.java:98)
+	... 49 more
+Caused by: java.lang.ClassNotFoundException: Cannot find class: RoleQuery
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:188)
+	at org.apache.ibatis.io.ClassLoaderWrapper.classForName(ClassLoaderWrapper.java:87)
+	at org.apache.ibatis.io.Resources.classForName(Resources.java:254)
+	at org.apache.ibatis.type.TypeAliasRegistry.resolveAlias(TypeAliasRegistry.java:109)
+	... 51 more
+2018-05-27 00:07:21,064 ERROR [org.springframework.test.context.TestContextManager] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7e797dd] to prepare test instance [com.share.crm.service.ServiceTest@75a33238]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.share.crm.service.ServiceTest': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.share.crm.service.IRoleService com.share.crm.service.ServiceTest.roleService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.share.crm.service.IRoleService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1204)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:385)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:118)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:212)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:200)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:252)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:254)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:217)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:83)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:68)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:163)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:86)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:38)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:459)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:675)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:382)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:192)
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.share.crm.service.IRoleService com.share.crm.service.ServiceTest.roleService; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.share.crm.service.IRoleService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:555)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:331)
+	... 26 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [com.share.crm.service.IRoleService] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1308)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1054)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:949)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:527)
+	... 28 more
+2018-05-27 00:10:22,541 DEBUG [com.share.crm.mapper.RoleMapper.insert] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:10:22,550 DEBUG [com.share.crm.mapper.RoleMapper.insert] - ==>  Preparing: insert into t_role(name,sn) values(?,?) 
+2018-05-27 00:10:22,597 DEBUG [com.share.crm.mapper.RoleMapper.insert] - ==> Parameters: 角色测试(String), null
+2018-05-27 00:11:37,500 DEBUG [com.share.crm.mapper.RoleMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:11:37,508 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==>  Preparing: select id,name,sn from t_role where id=? 
+2018-05-27 00:11:37,542 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==> Parameters: 8(Long)
+2018-05-27 00:11:37,590 DEBUG [com.share.crm.mapper.RoleMapper.update] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:11:37,591 DEBUG [com.share.crm.mapper.RoleMapper.update] - ==>  Preparing: update t_role set name=?,resource=? where id=? 
+2018-05-27 00:11:37,592 DEBUG [com.share.crm.mapper.RoleMapper.update] - ==> Parameters: 角色测试1(String), null, 8(Long)
+2018-05-27 00:12:20,500 DEBUG [com.share.crm.mapper.RoleMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:12:20,507 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==>  Preparing: select id,name,sn from t_role where id=? 
+2018-05-27 00:12:20,544 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==> Parameters: 8(Long)
+2018-05-27 00:12:20,571 DEBUG [com.share.crm.mapper.RoleMapper.update] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:12:20,573 DEBUG [com.share.crm.mapper.RoleMapper.update] - ==>  Preparing: update t_role set name=?,sn=? where id=? 
+2018-05-27 00:12:20,574 DEBUG [com.share.crm.mapper.RoleMapper.update] - ==> Parameters: 角色测试1(String), null, 8(Long)
+2018-05-27 00:13:45,174 DEBUG [com.share.crm.mapper.RoleMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:13:45,182 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==>  Preparing: select id,name,sn from t_role where id=? 
+2018-05-27 00:13:45,216 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==> Parameters: 8(Long)
+2018-05-27 00:13:45,251 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:13:45,252 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ==>  Preparing: select id,name,sn from t_role 
+2018-05-27 00:13:45,253 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ==> Parameters: 
+2018-05-27 00:14:21,969 DEBUG [com.share.crm.mapper.RoleMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:21,977 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==>  Preparing: select id,name,sn from t_role where id=? 
+2018-05-27 00:14:22,011 DEBUG [com.share.crm.mapper.RoleMapper.get] - ==> Parameters: 8(Long)
+2018-05-27 00:14:22,038 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:22,039 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ==>  Preparing: select id,name,sn from t_role 
+2018-05-27 00:14:22,039 DEBUG [com.share.crm.mapper.RoleMapper.getAll] - ==> Parameters: 
+2018-05-27 00:14:25,912 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:25,919 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_role 
+2018-05-27 00:14:25,964 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ==> Parameters: 
+2018-05-27 00:14:26,037 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:26,039 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ==>  Preparing: select id,name,sn from t_role order by id asc limit ?,? 
+2018-05-27 00:14:26,041 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ==> Parameters: 0(Integer), 10(Integer)
+2018-05-27 00:14:34,431 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:34,437 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_role 
+2018-05-27 00:14:34,470 DEBUG [com.share.crm.mapper.RoleMapper.findCountByQuery] - ==> Parameters: 
+2018-05-27 00:14:34,505 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:14:34,506 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ==>  Preparing: select id,name,sn from t_role order by id asc limit ?,? 
+2018-05-27 00:14:34,506 DEBUG [com.share.crm.mapper.RoleMapper.findByQuery] - ==> Parameters: 0(Integer), 5(Integer)
+2018-05-27 00:15:16,459 DEBUG [com.share.crm.mapper.RoleMapper.delete] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 00:15:16,468 DEBUG [com.share.crm.mapper.RoleMapper.delete] - ==>  Preparing: delete from t_role where id=? 
+2018-05-27 00:15:16,510 DEBUG [com.share.crm.mapper.RoleMapper.delete] - ==> Parameters: 8(Long)
+2018-05-27 14:59:31,333 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 14:59:31,358 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==>  Preparing: select id,name,sn,intro,parent_id from t_systemdictionaryitem where id=? 
+2018-05-27 14:59:31,392 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==> Parameters: 1(Long)
+2018-05-27 15:01:03,375 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:01:03,386 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==>  Preparing: select id,name,sequence,intro,parent_id from t_systemdictionaryitem where id=? 
+2018-05-27 15:01:03,428 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==> Parameters: 1(Long)
+2018-05-27 15:11:06,210 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:11:06,227 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==>  Preparing: select id,name,sequence,intro,parent_id from t_systemdictionaryitem where id=? 
+2018-05-27 15:11:06,277 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==> Parameters: 1(Long)
+2018-05-27 15:12:04,104 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:12:04,115 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==>  Preparing: select id,name,sequence,intro,parent_id from t_systemdictionaryitem where id=? 
+2018-05-27 15:12:04,165 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==> Parameters: 1(Long)
+2018-05-27 15:14:21,484 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:14:21,494 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==>  Preparing: select s.id,s.name,s.sequence,s.intro,s.parent_id,si.id siid,si.name siname,si.sn sisn,si.intro siintro,si.state sistate from t_systemdictionaryitem s left join t_systemdictionary si on s.parent_id=si.id where s.id=? 
+2018-05-27 15:14:21,536 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.get] - ==> Parameters: 1(Long)
+2018-05-27 15:17:12,760 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findCountByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:17:12,769 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findCountByQuery] - ==>  Preparing: select count(id) from t_systemdictionaryitem s 
+2018-05-27 15:17:12,825 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findCountByQuery] - ==> Parameters: 
+2018-05-27 15:17:12,926 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findByQuery] - ooo Using Connection [jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver]
+2018-05-27 15:17:12,927 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findByQuery] - ==>  Preparing: select s.id,s.name,s.sequence,s.intro,s.parent_id,si.id siid,si.name siname,si.sn sisn,si.intro siintro,si.state sistate from t_systemdictionaryitem s left join t_systemdictionary si on s.parent_id=si.id order by id asc limit ?,? 
+2018-05-27 15:17:12,928 DEBUG [com.share.crm.mapper.SystemDictionaryItemMapper.findByQuery] - ==> Parameters: 0(Integer), 10(Integer)

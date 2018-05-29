@@ -1,0 +1,4 @@
+2018-05-25 08:49:24,057 DEBUG [com.share.crm.service.JDBCTest] - 数据源连接：jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver
+2018-05-25 08:52:50,262 DEBUG [com.share.crm.service.JDBCTest] - 数据源连接：jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver
+2018-05-25 08:54:56,257 DEBUG [com.share.crm.service.JDBCTest] - 数据源连接：jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver
+2018-05-25 08:54:56,261 WARN [com.share.crm.service.JDBCTest] - 数据源连接：jdbc:mysql:///zxl-crm, UserName=root@localhost, MySQL-AB JDBC Driver

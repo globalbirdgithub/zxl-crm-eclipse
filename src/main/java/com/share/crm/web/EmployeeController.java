@@ -1,5 +1,6 @@
 package com.share.crm.web;
 import javax.annotation.Resource;
+import javax.websocket.server.PathParam;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,6 +50,17 @@ public class EmployeeController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new AjaxResult("保存失败！"+e.getMessage());
+		}
+	}
+	@RequestMapping("/leave")
+	@ResponseBody
+	public AjaxResult leave(@PathParam(value="id")Long id){
+		try {
+			employeeService.leave(id);
+			return new AjaxResult();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new AjaxResult("离职失败："+e.getMessage());
 		}
 	}
 }

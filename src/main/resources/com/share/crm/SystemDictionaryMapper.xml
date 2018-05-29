@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.share.crm.mapper.SystemDictionaryMapper">
+	<insert id="insert" parameterType="SystemDictionary" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+	 	insert into t_systemdictionary(name,sn,intro,state)
+	 		values(#{name},#{sn},#{intro},#{state})
+	 </insert>
+	 
+	 <delete id="delete" parameterType="long">
+	 	delete from t_systemdictionary 
+	 		where id=#{id}
+	 </delete>
+	 
+	 <update id="update" parameterType="SystemDictionary">
+	 	update t_systemdictionary 
+	 		set name=#{name},sn=#{sn},intro=#{intro},state=#{state}
+	 			where id=#{id}
+	 </update>
+	 
+	 <select id="get" parameterType="long" resultType="SystemDictionary">
+	 	select id,name,sn,intro,state from t_systemdictionary
+	 		where id=#{id}
+	 </select>
+	 
+	 <select id="getAll" resultType="SystemDictionary">
+	 	select id,name,sn,intro,state from t_systemdictionary
+	 </select>
+	 
+	 <select id="findCountByQuery" resultType="int">
+	 	select count(id) from t_systemdictionary
+	 		<include refid="whereSql"/>
+	 </select>
+	 
+	  <select id="findByQuery" parameterType="SystemDictionaryQuery" resultType="SystemDictionary">
+	 	select id,name,sn,intro,state from t_systemdictionary 
+	 		<include refid="whereSql"/>
+		 		order by ${sort} ${order}
+		 			limit #{startIndex},#{pageSize}
+	 </select>
+	 
+	 <sql id="whereSql">
+	 	<where>
+	 		<if test="q!=null and q!=''">
+	 			name like concat('%',#{q},'%') or sn like concat('%',#{q},'%')
+	 		</if>
+	 	</where>
+	 </sql>
+</mapper> 
